@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://xhpyyabm42t1"]
+
+[ext_resource type="PackedScene" uid="uid://chnyv6rcp6mgp" path="res://rig_test 3.tscn" id="1_e0t8a"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_e0t8a"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_am6ul"]
+sky_material = SubResource("ProceduralSkyMaterial_e0t8a")
+
+[sub_resource type="Environment" id="Environment_5ussl"]
+background_mode = 2
+sky = SubResource("Sky_am6ul")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cdkh2"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="Node3D" type="Node3D" unique_id=1982681748]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1807907924]
+environment = SubResource("Environment_5ussl")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1762501833]
+use_collision = true
+size = Vector3(10, 0.1, 10)
+material = SubResource("StandardMaterial3D_cdkh2")
+
+[node name="CharacterBody3D" parent="." unique_id=1259129814 instance=ExtResource("1_e0t8a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0232443, 0)
